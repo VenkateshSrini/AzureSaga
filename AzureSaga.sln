@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F5161A34-D759-4263-B26D-0177CE0B119B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModel", "DomainModel", "{2A913038-F385-4703-B345-558D8BECCFC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureSaga.Domain", "src\AzureSaga.Domain\AzureSaga.Domain.csproj", "{97D6A3DA-8F1A-4695-8269-0B3124E0E79E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97D6A3DA-8F1A-4695-8269-0B3124E0E79E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D6A3DA-8F1A-4695-8269-0B3124E0E79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D6A3DA-8F1A-4695-8269-0B3124E0E79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D6A3DA-8F1A-4695-8269-0B3124E0E79E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A913038-F385-4703-B345-558D8BECCFC3} = {F5161A34-D759-4263-B26D-0177CE0B119B}
+		{97D6A3DA-8F1A-4695-8269-0B3124E0E79E} = {2A913038-F385-4703-B345-558D8BECCFC3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13A96CD9-6DD6-4177-B79B-314BC3AC0D4D}
+	EndGlobalSection
+EndGlobal
