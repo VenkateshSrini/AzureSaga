@@ -8,6 +8,7 @@ namespace AzureSaga.Domain
 {
     public class UserCredit
     {
+        public string ? Id { get;set; }
         public string? Userid { get; set; }
         public int ? Credits { get; set; } = 0;
     }

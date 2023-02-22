@@ -6,3 +6,4 @@
 /.vs/github/v17
 /.vs
 /src/AzureSaga.Domain/obj
+/src/AzureSaga.Repository/obj

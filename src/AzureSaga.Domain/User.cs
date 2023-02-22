@@ -7,7 +7,7 @@
     }
     public class User
     {
-        public string? Userid { get;set; }
+        public string? Id { get;set; }
         public string? Username { get;set; }
         public string? Avatar { get;set; }
 
