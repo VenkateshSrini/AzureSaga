@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureSaga.Domain", "src\Azu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{24E91C57-87C7-4BD8-B429-2F0B7159E0B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSaga.Repository", "src\AzureSaga.Repository\AzureSaga.Repository.csproj", "{47076AF8-B708-40EB-8D0B-3460803A86E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureSaga.Repository", "src\AzureSaga.Repository\AzureSaga.Repository.csproj", "{47076AF8-B708-40EB-8D0B-3460803A86E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSagaFunctionApp", "src\AzureSagaFunctionApp\AzureSagaFunctionApp.csproj", "{2B7FBCB0-CF22-4C34-8259-604BD616F1BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureSagaFunctionApp", "src\AzureSagaFunctionApp\AzureSagaFunctionApp.csproj", "{2B7FBCB0-CF22-4C34-8259-604BD616F1BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

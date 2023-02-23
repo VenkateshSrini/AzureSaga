@@ -7,3 +7,5 @@
 /.vs
 /src/AzureSaga.Domain/obj
 /src/AzureSaga.Repository/obj
+/src/AzureSaga.Domain/bin/Debug/net6.0
+/src/AzureSaga.Repository/bin/Debug/net6.0
