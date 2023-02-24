@@ -28,7 +28,7 @@ namespace AzureSagaFunctionApp.Bulkload.Users
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiRequestBody("application/json",typeof(List<User>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(StandardResponse), Description = "The OK response")]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
+        public async Task<HttpResponseData> BulkLoadUsers([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
             _logger.LogInformation("Starting the bulk load operation for Users.");
             var userJson = new StreamReader(req.Body).ReadToEnd();
