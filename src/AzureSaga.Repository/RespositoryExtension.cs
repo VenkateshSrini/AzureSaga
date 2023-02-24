@@ -9,6 +9,7 @@ namespace AzureSaga.Repository
             string connectionString)
         { 
             var mongourl = MongoUrl.Create(connectionString);
+           
             var mongoClient = new MongoClient(mongourl);
             services.AddSingleton<MongoUrl>(mongourl);
             services.AddSingleton<IMongoClient>(mongoClient);

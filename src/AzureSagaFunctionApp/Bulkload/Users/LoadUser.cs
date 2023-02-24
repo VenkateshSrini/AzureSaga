@@ -5,6 +5,10 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using AzureSaga.Domain;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
+using Microsoft.OpenApi.Models;
+using AzureSagaFunctionApp.MessagePackets;
 
 namespace AzureSagaFunctionApp.Bulkload.Users
 {
@@ -20,14 +24,18 @@ namespace AzureSagaFunctionApp.Bulkload.Users
         }
 
         [Function("LoadUser")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+        [OpenApiOperation(operationId: "Run", tags: new[] { "LoadUser" })]
+        [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
+        [OpenApiRequestBody("application/json",typeof(List<User>))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(StandardResponse), Description = "The OK response")]
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
             _logger.LogInformation("Starting the bulk load operation for Users.");
             var userJson = new StreamReader(req.Body).ReadToEnd();
             var users = JsonConvert.DeserializeObject<List<User>>(userJson);
-            _userRepository.BulkLoadUsers(users);
+            await _userRepository.BulkLoadUsers(users);
 
-            var userResponse = new { OperationStatus = 201, status = "User Loaded successfully" };
+            var userResponse = new StandardResponse { OperationStatus = 201, Status = "User Loaded successfully" };
             var userResponseJson = JsonConvert.SerializeObject(userResponse);
             var bodyStream = new MemoryStream();
             var writer = new StreamWriter(bodyStream);
@@ -39,7 +47,7 @@ namespace AzureSagaFunctionApp.Bulkload.Users
             response.Body = bodyStream;
             response.Headers.Add("Content-Type", "application/json; charset=utf-8");
 
-            response.WriteString("completed the bulk load operation for Users.");
+            _logger.LogInformation("completed the bulk load operation for Users.");
 
             return response;
         }

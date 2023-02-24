@@ -28,9 +28,15 @@ namespace AzureSaga.Repository
         {
             var insertManyOptions = new InsertManyOptions();
             insertManyOptions.IsOrdered = true;
-
-            await _usersCollection.InsertManyAsync(users);
-            return users;
+            try
+            {
+                await _usersCollection.InsertManyAsync(users);
+                return users;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

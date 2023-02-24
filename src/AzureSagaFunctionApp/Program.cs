@@ -10,6 +10,7 @@ var host = new HostBuilder()
         services.AddMongoDbClient(hostBuilderContext.Configuration["ConnectionString"]);
         services.AddSingleton<IUserRepository, UserRepository>();
     })
+    .ConfigureOpenApi()
     .Build();
 
 host.Run();
