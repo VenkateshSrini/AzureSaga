@@ -9,6 +9,8 @@ var host = new HostBuilder()
     {
         services.AddMongoDbClient(hostBuilderContext.Configuration["ConnectionString"]);
         services.AddSingleton<IUserRepository, UserRepository>();
+        services.AddSingleton<IGameRespository,GameRespository>();
+        services.AddSingleton<IUserCreditRepository, UserCreditRepository>();
     })
     .ConfigureOpenApi()
     .Build();

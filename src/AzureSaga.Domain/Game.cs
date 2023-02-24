@@ -12,5 +12,6 @@ namespace AzureSaga.Domain
         public string? Name { get; set; }
         public string? Details { get; set; }
         public int? MinCreditPoints { get; set; }
+        public string? SagaId { get; set; }
     }
 }

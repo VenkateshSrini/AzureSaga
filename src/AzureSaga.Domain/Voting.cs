@@ -12,5 +12,9 @@ namespace AzureSaga.Domain
         public string? UserId { get; set; }
         public string? GameId { get;set; }
         public int? Credit { get; set; }
+        public string? SagaId
+        {
+            get; set;
+        }
     }
 }

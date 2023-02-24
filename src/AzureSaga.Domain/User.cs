@@ -11,6 +11,7 @@
         public string? Username { get;set; }
         public string? Avatar { get;set; }
         public UserType Type { get;set; }
+        public string? SagaId { get; set; }
 
     }
 }
