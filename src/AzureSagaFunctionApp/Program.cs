@@ -11,6 +11,7 @@ var host = new HostBuilder()
         services.AddSingleton<IUserRepository, UserRepository>();
         services.AddSingleton<IGameRespository,GameRespository>();
         services.AddSingleton<IUserCreditRepository, UserCreditRepository>();
+        services.AddSingleton<IVotingRepository, VotingRepository>();
     })
     .ConfigureOpenApi()
     .Build();

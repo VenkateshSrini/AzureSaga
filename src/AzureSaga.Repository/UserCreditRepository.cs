@@ -1,5 +1,6 @@
 ﻿using AzureSaga.Domain;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,21 @@ namespace AzureSaga.Repository
                 throw;
             }
 
+        }
+        public async Task<UserCredit> GetUserCreditAsync(string userId)
+        {
+            var credit = await _userCreditCollection?.Find(credit => credit.UserId.Equals(userId))
+                                                     .FirstOrDefaultAsync();
+            return credit;
+
+        }
+        public async Task<bool> UpdateCreditAmountAsync(string userId, int expensedCredit)
+        {
+            var filter = Builders<UserCredit>.Filter.Eq("UserId", userId);
+            var update = Builders<UserCredit>.Update.Inc("Credits", (expensedCredit * -1));
+            var recordCount = await _userCreditCollection.UpdateOneAsync(filter, update);
+            
+            return recordCount.ModifiedCount > 0;
         }
     }
 }
