@@ -10,7 +10,7 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.OpenApi.Models;
 using AzureSagaFunctionApp.MessagePackets;
 
-namespace AzureSagaFunctionApp.Bulkload.Users
+namespace AzureSagaFunctionApp.Bulkload
 {
     public class LoadUser
     {
@@ -26,7 +26,7 @@ namespace AzureSagaFunctionApp.Bulkload.Users
         [Function("LoadUser")]
         [OpenApiOperation(operationId: "BulkLoadUsers", tags: new[] { "LoadUser" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiRequestBody("application/json",typeof(List<User>))]
+        [OpenApiRequestBody("application/json", typeof(List<User>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(StandardResponse), Description = "The OK response")]
         public async Task<HttpResponseData> BulkLoadUsers([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {

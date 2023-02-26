@@ -22,7 +22,7 @@ namespace AzureSaga.Repository
             var collectionName = "UserCredit";
             _userCreditCollection = db.GetCollection<UserCredit>(collectionName);
         }
-        public async Task<List<UserCredit>> BulkInsertGames(List<UserCredit> userCredits)
+        public async Task<List<UserCredit>> BulkInsertUserCredits(List<UserCredit> userCredits)
         {
             var insertManyOptions = new InsertManyOptions();
             insertManyOptions.IsOrdered = true;

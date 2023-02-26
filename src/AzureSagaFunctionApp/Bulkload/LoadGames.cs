@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
-namespace AzureSagaFunctionApp.Bulkload.Users
+namespace AzureSagaFunctionApp.Bulkload
 {
     public class LoadGames
     {
@@ -28,7 +28,7 @@ namespace AzureSagaFunctionApp.Bulkload.Users
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiRequestBody("application/json", typeof(List<Game>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(StandardResponse), Description = "The OK response")]
-        public async Task<HttpResponseData> BulkLoadGames([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
+        public async Task<HttpResponseData> BulkLoadGames([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
             _logger.LogInformation("Starting of bulk loading of Games");
 
