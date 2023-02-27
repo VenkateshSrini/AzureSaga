@@ -47,7 +47,7 @@ namespace AzureSaga.Repository
         public async Task<bool> UpdateCreditAmountAsync(string userId, int expensedCredit)
         {
             var filter = Builders<UserCredit>.Filter.Eq("UserId", userId);
-            var update = Builders<UserCredit>.Update.Inc("Credits", (expensedCredit * -1));
+            var update = Builders<UserCredit>.Update.Set("Credits", expensedCredit );
             var recordCount = await _userCreditCollection.UpdateOneAsync(filter, update);
             
             return recordCount.ModifiedCount > 0;
