@@ -42,5 +42,12 @@ namespace AzureSaga.Repository
             var delResult = await _votingCollection.DeleteOneAsync(votingId);
             return delResult.DeletedCount > 0;
         }
+        public async Task<bool>UpdateSagaId(string votingId, string sagaId)
+        {
+            var filter = Builders<Voting>.Filter.Eq("Id", votingId);
+            var update = Builders<Voting>.Update.Set("SagaId", sagaId);
+            var updateStatus = await _votingCollection.UpdateOneAsync(filter, update);
+            return updateStatus.ModifiedCount > 0;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AzureSaga.Repository;
+using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Extensions;
 using Microsoft.DurableTask;
 using Microsoft.Extensions.Logging;
 
@@ -24,7 +25,7 @@ namespace AzureSagaFunctionApp.Orchestration.ActivityFunctions
                 var userCreditObj = await _userCreditRepository.GetUserCreditAsync(input);
                 if (userCreditObj != null)
                 {
-                    if (userCreditObj.SagaId.IsNullOrWhiteSpace())
+                    if (!userCreditObj.SagaId.IsNullOrWhiteSpace())
                     {
                         var updateResult = _userCreditRepository.UpdateSagaId(input, context.InstanceId);
                     }

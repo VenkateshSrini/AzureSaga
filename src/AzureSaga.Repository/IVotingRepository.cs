@@ -8,5 +8,6 @@ namespace AzureSaga.Repository
         Task<Voting> GetVotingByIdAsync(string votingId);
         Task<Voting> InsertVotingAsync(Voting voting);
         Task<bool> UpdateVotingRecordStatus(string votingId, VotingRecordState recordState);
+        Task<bool> UpdateSagaId(string votingId, string sagaId);
     }
 }
