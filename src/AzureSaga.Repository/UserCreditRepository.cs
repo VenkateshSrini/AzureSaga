@@ -52,5 +52,14 @@ namespace AzureSaga.Repository
             
             return recordCount.ModifiedCount > 0;
         }
+
+        public async Task<bool> UpdateSagaId(string userId, string sagaId)
+        {
+            var filter = Builders<UserCredit>.Filter.Eq("UserId", userId);
+            var update = Builders<UserCredit>.Update.Set("SagaId", sagaId);
+            var recordCount = await _userCreditCollection.UpdateOneAsync(filter, update);
+
+            return recordCount.ModifiedCount > 0;
+        }
     }
 }

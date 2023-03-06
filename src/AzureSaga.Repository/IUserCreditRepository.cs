@@ -7,5 +7,6 @@ namespace AzureSaga.Repository
         Task<List<UserCredit>> BulkInsertUserCredits(List<UserCredit> userCredits);
         Task<UserCredit> GetUserCreditAsync(string userId);
         Task<bool> UpdateCreditAmountAsync(string userId, int expensedCredit);
+        Task<bool> UpdateSagaId(string userId, string sagaId);
     }
 }
