@@ -10,5 +10,6 @@ namespace AzureSagaFunctionApp.MessagePackets
     {
         public int OperationStatus { get; set; }
         public string Status { get; set; }
+        public string SagaId { get;set; }
     }
 }

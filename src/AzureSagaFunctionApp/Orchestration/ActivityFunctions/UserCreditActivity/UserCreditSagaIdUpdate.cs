@@ -33,6 +33,10 @@ namespace AzureSagaFunctionApp.Orchestration.ActivityFunctions
                 }
                 return false;
             }
+            catch
+            {
+                return false;
+            }
             
         }
 

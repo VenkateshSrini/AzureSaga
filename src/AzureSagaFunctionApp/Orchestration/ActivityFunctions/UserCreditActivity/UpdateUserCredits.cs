@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace AzureSagaFunctionApp.Orchestration.ActivityFunctions.UserCreditActivity
 {
 
-    [DurableTask(nameof(ResetUCSagaID))]
+    [DurableTask(nameof(UpdateUserCredits))]
     public class UpdateUserCredits: TaskActivity<(string userId,int amount),bool>
     {
         private readonly IUserCreditRepository _userCreditRepository;

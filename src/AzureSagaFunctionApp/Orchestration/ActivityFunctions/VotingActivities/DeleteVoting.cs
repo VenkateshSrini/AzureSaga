@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AzureSagaFunctionApp.Orchestration.ActivityFunctions.VotingActivities
 {
-    [DurableTask(nameof(ResetUCSagaID))]
+    [DurableTask(nameof(DeleteVoting))]
     public class DeleteVoting:TaskActivity<string,bool>
     {
         public readonly IVotingRepository _votingRepository;

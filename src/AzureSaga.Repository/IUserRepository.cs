@@ -5,5 +5,6 @@ namespace AzureSaga.Repository
     public interface IUserRepository
     {
         Task<List<User>> BulkLoadUsers(List<User> users);
+        Task<User> GetUserById(string userID);
     }
 }
