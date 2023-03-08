@@ -41,7 +41,7 @@ namespace AzureSaga.Repository
         public async Task<Game>GetGameByID(string GameId)
         {
             return await (await _gamesCollection.FindAsync(game=>game.Id.Equals(GameId)))
-                         .FirstOrDefaultAsync();
+                         ?.FirstOrDefaultAsync();
         }
 
     }

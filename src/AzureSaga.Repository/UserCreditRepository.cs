@@ -40,7 +40,7 @@ namespace AzureSaga.Repository
         public async Task<UserCredit> GetUserCreditAsync(string userId)
         {
             var credit = await _userCreditCollection?.Find(credit => credit.UserId.Equals(userId))
-                                                     .FirstOrDefaultAsync();
+                                                     ?.FirstOrDefaultAsync();
             return credit;
 
         }

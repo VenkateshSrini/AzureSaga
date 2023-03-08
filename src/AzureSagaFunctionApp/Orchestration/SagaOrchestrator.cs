@@ -32,6 +32,12 @@ namespace AzureSagaFunctionApp.Orchestration
                 return standardResponse;
 
             }
+            if (userObj.Type!= UserType.Fan)
+            {
+                standardResponse.OperationStatus = 400;
+                standardResponse.Status = "User should be a Fan to enter Saga";
+                return standardResponse;
+            }
             var gameObj = await context.CallGetGameAsync(userInput.GameId);
             if (gameObj is null)
             {
@@ -120,7 +126,7 @@ namespace AzureSagaFunctionApp.Orchestration
         [OpenApiRequestBody("application/json", typeof(UserInputRequestMessage))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(StandardResponse), Description = "The OK response")]
         public static async Task<HttpResponseData> HttpStart(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req,
+            [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req,
             [DurableClient] DurableTaskClient client,
             FunctionContext executionContext)
         {

@@ -41,7 +41,7 @@ namespace AzureSaga.Repository
         public async Task<User>GetUserById(string userID)
         {
             return await (await _usersCollection.FindAsync(user => user.Id.Equals(userID)))
-                         .FirstOrDefaultAsync();
+                         ?.FirstOrDefaultAsync();
         }
     }
 }

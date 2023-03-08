@@ -1,0 +1,5 @@
+{
+  "gameId": "g1",
+  "userId": "u1",
+  "votingPoints": 1000
+}
