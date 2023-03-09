@@ -3,10 +3,6 @@
     "appInsights1": {
       "type": "appInsights"
     },
-    "storage1": {
-      "type": "storage",
-      "connectionId": "AzureWebJobsStorage"
-    },
     "secrets1": {
       "type": "secrets"
     },
@@ -14,6 +10,10 @@
       "type": "storage",
       "connectionId": "queue-con",
       "dynamicId": null
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "AzureWebJobsStorage"
     }
   }
 }
