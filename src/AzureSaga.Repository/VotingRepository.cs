@@ -23,6 +23,7 @@ namespace AzureSaga.Repository
         }
         public async Task<Voting> InsertVotingAsync(Voting voting)
         {
+            voting.Id = Guid.NewGuid().ToString();
             await _votingCollection.InsertOneAsync(voting);
             return voting;
         }

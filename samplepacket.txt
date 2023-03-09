@@ -1,5 +1,12 @@
 {
+{
   "gameId": "g1",
-  "userId": "u1",
-  "votingPoints": 1000
+  "userId": "u2",
+  "votingPoints": 10
+},
+{
+  "gameId": "g2",
+  "userId": "u3",
+  "votingPoints": 10
+}
 }

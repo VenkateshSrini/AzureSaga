@@ -96,7 +96,7 @@ namespace AzureSagaFunctionApp.Orchestration
                     await context.CallResetUCSagaIDAsync(userInput.UserId);
                     return standardResponse;
                 }
-                var completeVotingStatus = await context.CallCompleteVotingAsync(userInput.UserId);
+                var completeVotingStatus = await context.CallCompleteVotingAsync(dbVote.Id);
                 if (!completeVotingStatus)
                 {
                     standardResponse.OperationStatus = 500;
@@ -114,6 +114,7 @@ namespace AzureSagaFunctionApp.Orchestration
                     standardResponse.Status = $"Saga Complete";
                 }
             }
+            logger.LogInformation($"Standard Response {JsonConvert.SerializeObject(standardResponse)}");
 
             return standardResponse;
         }

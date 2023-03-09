@@ -25,9 +25,10 @@ namespace AzureSagaFunctionApp.Orchestration.ActivityFunctions
                 var userCreditObj = await _userCreditRepository.GetUserCreditAsync(input);
                 if (userCreditObj != null)
                 {
-                    if (!userCreditObj.SagaId.IsNullOrWhiteSpace())
+                    if (userCreditObj.SagaId.IsNullOrWhiteSpace())
                     {
-                        var updateResult = _userCreditRepository.UpdateSagaId(input, context.InstanceId);
+                        var updateResult = await _userCreditRepository.UpdateSagaId(input, context.InstanceId);
+                        return updateResult;
                     }
 
                 }
