@@ -9,3 +9,12 @@
 /src/AzureSaga.Repository/obj
 /src/AzureSaga.Domain/bin/Debug/net6.0
 /src/AzureSaga.Repository/bin/Debug/net6.0
+/src/AzureSaga.Repository/bin/Release/net6.0
+/src/AzureSaga.Domain/bin/Release/net6.0
+/src/AzureSagaFunctionApp/Properties/PublishProfiles/AzureSagaFunctionApp - Zip Deploy.pubxml
+/src/AzureSagaFunctionApp/Properties/serviceDependencies.AzureSagaFunctionApp.json
+/src/AzureSagaFunctionApp/Properties/serviceDependencies.AzureSagaFunctionApp - Zip Deploy.json
+/src/AzureSagaFunctionApp/Properties/ServiceDependencies/AzureSagaFunctionApp - Zip Deploy/storage1.arm.json
+/src/AzureSagaFunctionApp/Properties/ServiceDependencies/AzureSagaFunctionApp - Zip Deploy/profile.arm.json
+/src/AzureSagaFunctionApp/Properties/ServiceDependencies/AzureSagaFunctionApp - Zip Deploy
+/src/AzureSagaFunctionApp/Properties/ServiceDependencies/AzureSagaFunctionApp/storage1.arm.json
