@@ -1,12 +1,11 @@
 using System;
 using AzureSagaFunctionApp.MessagePackets;
-using AzureSagaFunctionApp.Orchestration;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask.Client;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace AzureSagaFunctionApp
+namespace AzureSagaFunctionApp.Orchestration
 {
     public class SagaQueueStart
     {

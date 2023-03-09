@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
-namespace AzureSagaFunctionApp
+namespace AzureSagaFunctionApp.Orchestration
 {
     public class SagaEntrypoint
     {
@@ -24,7 +24,7 @@ namespace AzureSagaFunctionApp
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiRequestBody("application/json", typeof(UserInputRequestMessage))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(StandardResponse), Description = "The OK response")]
-        public OrchestrationStartResponse Run([HttpTrigger(AuthorizationLevel.Function,  "post")] HttpRequestData req)
+        public OrchestrationStartResponse Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             var userInputJson = new StreamReader(req.Body).ReadToEnd();
@@ -39,7 +39,7 @@ namespace AzureSagaFunctionApp
                     SagaId = ""
                 }
             };
-            
+
 
             return response;
         }
