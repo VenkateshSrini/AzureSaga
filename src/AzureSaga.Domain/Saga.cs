@@ -10,11 +10,13 @@ namespace AzureSaga.Domain
     {
         InProgress = 0,
         Completed = 1,
-        RolledBac=2
+        RolledBack=2
     }
     public class Saga
     {
+        public string UserId { get;set; }
         public string Id { get; set; }
         public SagaState State { get; set; }
+        public string Message { get; set; }
     }
 }
